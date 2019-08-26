@@ -1,0 +1,86 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "funds-transfer-service/onl-bank-db/00.00.01.00",
+        "author": "sandeeps.shinde84@gmail.com",
+        "comments": "Onl Bank DB",
+        "changes": [
+          {
+            "createTable": {
+              "tableName": "t_account",
+              "columns": [
+                {
+                  "column": {
+                    "name": "id",
+                    "type": "bigint",
+                    "constraints": {
+                      "primarykey": true,
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "account_number",
+                    "type": "varchar(10)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "balance_amount",
+                    "type": "decimal",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "currency_unit",
+                    "type": "varchar(3)",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "created_on",
+                    "type": "date",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                },
+                {
+                  "column": {
+                    "name": "modified_on",
+                    "type": "date"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "version",
+                    "type": "int",
+                    "constraints": {
+                      "nullable": false
+                    }
+                  }
+                }
+              ]
+            },
+            "createSequence": {
+              "sequenceName": "s_account",
+              "startValue": 1,
+              "incrementBy": 1
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

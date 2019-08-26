@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bank.revolut.fund.transfer.infrastructure.database.AccountMapper">
+
+    <resultMap type="Account" id="accountResultMap">
+        <result property="id" column="ID" javaType="_long"/>
+        <result property="accountNumber" column="ACCOUNT_NUMBER" javaType="String"/>
+        <result property="createdOn" column="CREATED_ON" javaType="java.time.LocalDateTime"/>
+        <result property="modifiedOn" column="MODIFIED_ON" javaType="java.time.LocalDateTime"/>
+        <result property="version" column="VERSION" javaType="int"/>
+        <association property="balance" resultMap="balanceMap"/>
+    </resultMap>
+
+    <resultMap type="org.javamoney.moneta.Money" id="balanceMap">
+        <constructor>
+            <idArg column="BALANCE_AMOUNT" javaType="decimal"/>
+            <arg column="CURRENCY_UNIT" javaType="javax.money.CurrencyUnit"/>
+        </constructor>
+    </resultMap>
+
+    <select id="selectAccountByAccountNumber" parameterType="map" resultMap="accountResultMap">
+        SELECT
+        ID,
+        ACCOUNT_NUMBER,
+        BALANCE_AMOUNT,
+        CURRENCY_UNIT,
+        CREATED_ON,
+        MODIFIED_ON,
+        VERSION
+        FROM
+        T_ACCOUNT
+        WHERE
+        ACCOUNT_NUMBER = #{accountNumber}
+    </select>
+
+    <update id="updateAccount" parameterType="Account">
+        UPDATE T_ACCOUNT SET
+        BALANCE_AMOUNT = #{balance.number},
+        MODIFIED_ON = #{modifiedOn},
+        VERSION = VERSION + 1
+        WHERE
+        ACCOUNT_NUMBER = #{accountNumber}
+        AND VERSION = #{version}
+    </update>
+
+</mapper>

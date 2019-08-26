@@ -1,0 +1,43 @@
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "funds-transfer-service/onl-bank-db/changelog-00.00.01.01.json",
+        "author": "sandeeps.shinde84@gmail.com",
+        "comments": "Onl Bank DB",
+        "changes": [
+          {
+            "sql": {
+              "dbms": "h2",
+              "sql": "insert into t_account (id, account_number, balance_amount, currency_unit, created_on, modified_on, version) values (1, 'REV005', 10000.00, 'EUR', SYSDATE, null, 1)"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "h2",
+              "sql": "insert into t_account (id, account_number, balance_amount, currency_unit, created_on, modified_on, version) values (2, 'REV006', 10000.00, 'EUR', SYSDATE, null, 1)"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "h2",
+              "sql": "insert into t_account (id, account_number, balance_amount, currency_unit, created_on, modified_on, version) values (3, 'REV007', 10000.00, 'EUR', SYSDATE, null, 1)"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "h2",
+              "sql": "insert into t_account (id, account_number, balance_amount, currency_unit, created_on, modified_on, version) values (4, 'REV008', 10000.00, 'EUR', SYSDATE, null, 1)"
+            }
+          },
+          {
+            "sql": {
+              "dbms": "h2",
+              "sql": "insert into t_account (id, account_number, balance_amount, currency_unit, created_on, modified_on, version) values (5, 'REV009', 15000.00, 'EUR', SYSDATE, null, 1)"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

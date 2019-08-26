@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="funds-transfer-service.properties"/>
+
+    <settings>
+        <setting name="lazyLoadingEnabled" value="false"/>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="localCacheScope" value="STATEMENT"/>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="Account" type="bank.revolut.fund.transfer.domain.model.Account"/>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="bank.revolut.fund.transfer.infrastructure.database.typehandlers.LocalDateTypeHandler"
+                     javaType="java.time.LocalDate"/>
+        <typeHandler handler="bank.revolut.fund.transfer.infrastructure.database.typehandlers.LocalDateTimeTypeHandler"
+                     javaType="java.time.LocalDateTime"/>
+        <typeHandler handler="bank.revolut.fund.transfer.infrastructure.database.typehandlers.CurrencyUnitTypeHandler"
+                     javaType="javax.money.CurrencyUnit"/>
+        <typeHandler handler="bank.revolut.fund.transfer.infrastructure.database.typehandlers.NumberValueUnitTypeHandler"
+                     javaType="javax.money.NumberValue"/>
+
+
+    </typeHandlers>
+
+    <environments default="production">
+        <environment id="production">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${app.db.driver}"/>
+                <property name="url" value="${app.db.url}"/>
+                <property name="username" value="${app.db.username}"/>
+                <property name="password" value="${app.db.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper class="bank.revolut.fund.transfer.infrastructure.database.AccountMapper"/>
+    </mappers>
+
+</configuration>

@@ -1,0 +1,15 @@
+git /bin/
+/build/
+**/build/*
+/.classpath
+/.project
+/.settings/
+/.gradle/
+/docker/tmp
+/.idea/
+/*.lck
+/*.log
+/src/test/tmp/*.csv
+/*.iml
+/out/
+**/out/*
