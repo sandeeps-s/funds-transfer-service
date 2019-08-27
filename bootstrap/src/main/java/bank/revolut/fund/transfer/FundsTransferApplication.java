@@ -15,7 +15,6 @@ public class FundsTransferApplication extends Application {
 
     public static void main(String[] args) throws Exception {
 
-        DB.initialize();
         UndertowServer.startContainer(SERVER_PORT);
         System.in.read();
         UndertowServer.stopContainer();

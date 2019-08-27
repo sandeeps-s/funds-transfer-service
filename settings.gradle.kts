@@ -7,7 +7,7 @@
  * in the user manual at https://docs.gradle.org/5.6/userguide/multi_project_builds.html
  */
 
-rootProject.name = "funds-transfer-service"
+rootProject.name = "funds-transfer"
 
 include("domain", "application", "infrastructure", "bootstrap")
 

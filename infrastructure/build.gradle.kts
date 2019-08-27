@@ -1,9 +1,8 @@
-
 dependencies {
 
     compile(project(":application"))
 
-   compile("javax:javaee-api:8.0")
+    compile("javax:javaee-api:8.0")
     compile("org.jboss.resteasy:resteasy-core:4.2.0.Final")
     compile("org.jboss.resteasy:resteasy-servlet-initializer:4.2.0.Final")
     compile("org.jboss.resteasy:resteasy-undertow:4.2.0.Final")
@@ -35,6 +34,7 @@ dependencies {
     compile("org.mybatis:mybatis-cdi:1.1.0")
 
     compile("com.h2database:h2:1.4.199")
-    compile("org.liquibase:liquibase-core:3.5.0")
+    compile("org.liquibase:liquibase-core:3.6.2")
+    compile("org.liquibase:liquibase-cdi:3.6.2")
     compile("org.liquibase:liquibase-groovy-dsl:2.0.3")
 }
